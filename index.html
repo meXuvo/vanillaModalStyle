@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>modal | js</title>
+    <style type="text/css">
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .container{
+        position: relative;
+        width: 100%;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #fff173;
+        transition:0.5s;
+        padding: 20px;
+    }
+    .container#blur.active{
+        filter: blur(20px);
+        pointer-events: none;
+        user-select: none;
+
+    }
+    .container .content{
+        position: relative;
+        max-width: 800px;
+    }
+    h2{
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: #333;
+    }
+    .container .content img{
+        max-width: 100%;
+        display: block;
+    }
+    a{
+        position: relative;
+        padding: 5px 20px;
+        display: inline-block;
+        margin-top: 20px;
+        text-decoration: none;
+        color: #fff;
+        background-color: #111;
+    }
+    #popup {
+        position: fixed;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%,-58%);
+        width: 600px;
+        padding: 50px;
+        box-shadow: 0 0px 30px rgba(0,0,0,.30);
+        background: #fff;
+        visibility: hidden;
+        opacity: 0;
+        transition: 0.5s;
+    }
+    #popup.active{
+        top: 50%;
+        visibility:visible;
+        opacity: 1;
+        transition: 0.5s;
+
+    }
+    </style>
+</head>
+<body>
+    <div class="container" id="blur">
+        <div class="content">
+            <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, nam incidunt sapiente perferendis nulla veniam voluptate, facere aliquid eius corrupti </h2>
+            <img src="people_service.jpg" alt="">
+            <a href="#" onclick="toggle()">read more</a>
+        </div>
+    </div>
+    <div id="popup">
+        <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, tenetur.</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta doloremque molestiae cum eius eos. Minima rem veniam sint mollitia molestiae. Nulla, quisquam! Ipsam earum repudiandae odit sunt quo, praesentium illum?Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, explicabo quia necessitatibus tenetur error reprehenderit sit accusantium asperiores minima voluptatibus?</p>
+        <a href="#" onclick="toggle()">close</a>
+    </div>
+    <script type="text/javascript">
+    "use strict"
+        function toggle(){
+            var show = document.getElementById('blur');
+            show.classList.toggle('active');
+            var  hidden= document.getElementById('popup');
+            hidden.classList.toggle('active');
+        }
+    
+    
+    </script>
+</body>
+</html>
